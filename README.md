@@ -1,8 +1,9 @@
 # Assesment PHP 
 
 Anda diminta untuk membuat aplikasi task to do sederhana yang memungkinkan
-pengguna untuk membuat daftar tugas, mengedit deskripel tugas, menandal tugas yang
+pengguna untuk membuat daftar tugas, mengedit deskripsi tugas, menandai tugas yang
 telah selesal, dan menghapus tugas. Dengan kriteria sebagal berikut:  
+  
 Note:  
 Sistem ini harus menyimpan data ke dalam database menggunakan PDO
 Sistem ini harus menggunakan authentikasl (Login, logout) menggunakan
