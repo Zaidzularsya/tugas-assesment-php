@@ -29,6 +29,7 @@ class HomeController
         
         // Logika untuk halaman about
         require 'views/dashboard.php';
+        // $response->view('dashboard');
     }
 
     public function updateTask($request, $response, $session)
@@ -118,29 +119,23 @@ class HomeController
 
     public function uploadAttachment($request, $response, $session)
     {
-        $db = new Database();
-        // print BASE_DIR;die;
         $storage = new Storage();
-        $files = $request->getFiles();
-        // print_r($files);die;
-        // Contoh query SELECT
         try {
-            $db->query('DELETE FROM zaidsource.ZM_TASK
-	                    WHERE ID=:id', [
-                'id' => $formData['id']
-            ]);
-            $data = [
-                'status' => true,
-                'message' => 'Delete Success',
-                'data' => $formData
-            ];
+            $do_upload = $storage->validate('lampiran')->upload();
+            $fileDescription = explode('_', $do_upload['fileName']);
+            $db = new Database();
+            $db->query('
+                        INSERT INTO zaidsource.ZT_OBJECTS (name,description,reference)
+                        VALUES (:filename, :description, :uploadId)
+                        ', [
+                            'filename' => $fileDescription[1],
+                            'description' => 'File attachment',
+                            'uploadId' => $fileDescription[0]
+                    ]);
+            $response->json($do_upload);
         } catch (\Throwable $th) {
-            $data = [
-                'status' => false,
-                'message' => 'Failed Delete',
-                'data' => $th
-            ];
+            echo $th;
         }
-        $response->json($data);
+        
     }
 }

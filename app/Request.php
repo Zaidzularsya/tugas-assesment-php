@@ -2,9 +2,15 @@
 
 namespace ZF\App;
 
-class Request
+use ZF\App\Kontrak\HttpInterface;
+
+
+class Request implements HttpInterface
 {
+    private $statusCode = 200;
     private $queryParams = [];
+    private $headers = [];
+    private $body;
     private $formData = [];
     private $formFiles;
     private $method;
@@ -27,6 +33,70 @@ class Request
     public function getMethod()
     {
         return $this->method;
+    }
+
+    /**
+     * Kirim respons HTTP ke browser
+     */
+    public function send()
+    {
+        // Atur status code
+        http_response_code($this->statusCode);
+
+        // Atur header
+        foreach ($this->headers as $name => $value) {
+            header("$name: $value");
+        }
+
+        // Tampilkan body
+        echo $this->body;
+    }
+
+    public function json(array $data)
+    {
+        // Atur status code
+        http_response_code($this->statusCode);
+        $this->addHeader('Content-Type', 'application/json');
+
+        // Atur header
+        foreach ($this->headers as $name => $value) {
+            header("$name: $value");
+        }
+
+        // Tampilkan body
+        echo json_encode($data);
+    }
+
+    /**
+     * Atur body respons HTTP
+     *
+     * @param string $body Konten body respons
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
+
+
+    /**
+     * Set status code untuk respons HTTP
+     *
+     * @param int $statusCode Kode status HTTP
+     */
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = $statusCode;
+    }
+
+    /**
+     * Tambahkan header ke respons HTTP
+     *
+     * @param string $name  Nama header
+     * @param string $value Nilai header
+     */
+    public function addHeader($name, $value)
+    {
+        $this->headers[$name] = $value;
     }
 
     /**
@@ -91,7 +161,7 @@ class Request
      */
     public function redirect($url)
     {
-        header("Location: $url");
+        header("Location: ".BASE_URL."$url");
         exit();
     }
 }

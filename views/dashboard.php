@@ -1,6 +1,6 @@
+<?php echo $temp; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -230,6 +230,12 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="nav-item d-flex px-3 align-items-center">
+                            <a href="./logout" class="nav-link text-white font-weight-bold px-0">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span class="d-sm-inline d-none">Log out</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

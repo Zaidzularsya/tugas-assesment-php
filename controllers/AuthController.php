@@ -58,4 +58,29 @@ class AuthController
         }
 
     }
+
+    public function logout($request){
+        $this->clearSession();
+        $this->clearCookie("user_id");
+        $request->redirect('');
+    }
+
+    /**
+     * Membersihkan (menghapus) session
+     */
+    private function clearSession()
+    {
+        session_unset();  // Membersihkan variabel session
+        session_destroy(); // Menghancurkan sesi
+    }
+
+    /**
+     * Membersihkan (menghapus) cookie
+     *
+     * @param string $cookieName Nama cookie yang akan dihapus
+     */
+    private function clearCookie($cookieName)
+    {
+        setcookie($cookieName, "", time() - 3600, "/"); // Mengatur waktu kedaluwarsa satu jam yang lalu
+    }
 }

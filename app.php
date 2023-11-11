@@ -29,6 +29,7 @@ class Autoloader
     public static function register()
     {
         spl_autoload_register(function ($class) {
+            
             $class = str_replace('ZF\\', '', $class);
             $classParts = explode('\\', $class);
             $className = array_pop($classParts);

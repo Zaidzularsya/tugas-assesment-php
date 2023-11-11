@@ -1,83 +1,29 @@
 <?php
 namespace ZF\App;
 
-class Http{
-    protected $server;
-    protected $cookie;
-    protected $get;
-    protected $post;
+use ZF\App\Request;
+use ZF\App\Response;
+use ZF\App\Session;
+
+abstract class Http{
+    protected $header;
     protected $request;
+    protected $response;
+    protected $cookie;
+    protected $method;
     protected $session;
 
     public function __construct()
     {
-        $this->server  = $_SERVER;
-        $this->cookie  = $_COOKIE;
-        $this->get     = $_GET;
-        $this->post    = $_POST;
-        $this->request = $_REQUEST;
-        $this->session = $_SESSION;
+        $this->session = new Session();
+        $this->request = new Request();
+        $this->response= new Response();
     }
 
-    // Getter
-    public function getServer()
-    {
-        return $this->server;
-    }
-
-    public function getCookie()
-    {
-        return $this->cookie;
-    }
-
-    public function getGet()
-    {
-        return $this->get;
-    }
-
-    public function getPost()
-    {
-        return $this->post;
-    }
-
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
-    public function getSession()
-    {
+    public function getSession(){
+        $this->session = new Session();
         return $this->session;
     }
 
-    // Setter
-    public function setServer($server)
-    {
-        $this->server = $server;
-    }
-
-    public function setCookie($cookie)
-    {
-        $this->cookie = $cookie;
-    }
-
-    public function setGet($get)
-    {
-        $this->get = $get;
-    }
-
-    public function setPost($post)
-    {
-        $this->post = $post;
-    }
-
-    public function setRequest($request)
-    {
-        $this->request = $request;
-    }
-
-    public function setSession($session)
-    {
-        $this->session = $session;
-    }
+    abstract public function forward($callback);
 }
