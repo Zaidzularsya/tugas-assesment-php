@@ -4,6 +4,7 @@ use ZF\App\Route;
 
 use ZF\Controllers\HomeController;
 use ZF\Controllers\AuthController;
+use ZF\Controllers\ApiController;
 
 $route = new Route();
 
@@ -21,3 +22,14 @@ $route->post('/delete-task', [HomeController::class, 'deleteTask']);
 
 
 $route->post('/upload-attachment', [HomeController::class, 'uploadAttachment']);
+
+
+/**
+ * Routing Api
+ */
+
+$route->get('/getTasks', [ApiController::class, 'getTasks']);
+$route->post('/getTaskById', [ApiController::class, 'getTaskById']);
+$route->post('/insertTask', [ApiController::class, 'insertTask']);
+$route->post('/updateTask', [ApiController::class, 'updateTask']);
+$route->post('/deleteTask', [ApiController::class, 'deleteTask']);

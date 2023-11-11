@@ -3,6 +3,7 @@ namespace ZF\Controllers;
 
 use ZF\App\Database;
 use ZF\App\Storage;
+use ZF\Models\Tasks;
 
 class HomeController
 {
@@ -15,21 +16,21 @@ class HomeController
     public function home($request, $response, $session)
     {
         $db = new Database();
+        $task_collection = new Tasks();
         
         // Contoh query SELECT
-        $list_tasks = $db->fetchAll('
-                                    SELECT zt.ID, zt.DESCRIPTION, zt.COMPLETED, zt.CREATE_AT, zt.UPDATE_AT, zu.USERNAME, zu.EMAIL
-                                    FROM ZM_TASK zt 
-                                        JOIN ZT_USERS zu ON zt.USER_ID = zu.USER_ID
-                                    WHERE zt.USER_ID = :user_id', ['user_id' => $session->get('user_id')]);
+        $list_tasks = $task_collection->findAll(['user_id' => $session->get('user_id')]);
         $count_task = $db->fetchAll('SELECT COUNT(*) AS total_tasks FROM ZM_TASK')[0];
         $count_uncompleted = $db->fetchAll('SELECT COUNT(*) AS total_tasks FROM ZM_TASK WHERE COMPLETED = 0')[0];
         $count_completed = $db->fetchAll('SELECT COUNT(*) AS total_tasks FROM ZM_TASK WHERE COMPLETED = 1')[0];
-
-        
         // Logika untuk halaman about
-        require 'views/dashboard.php';
-        // $response->view('dashboard');
+        // require 'views/dashboard.php';
+        $response->view('dashboard', [
+            'list_tasks' => $list_tasks,
+            'count_task' => $count_task,
+            'count_uncompleted' => $count_uncompleted,
+            'count_completed' => $count_completed
+        ]);
     }
 
     public function updateTask($request, $response, $session)
@@ -61,7 +62,7 @@ class HomeController
             ];
             
         }
-        $response->json($data);
+        return $response->json($data);
     }
 
     public function insertTask($request, $response, $session)
@@ -89,7 +90,7 @@ class HomeController
                 'data' => $th
             ];
         }
-        $response->json($data);
+        return $response->json($data);
     }
 
     public function deleteTask($request, $response, $session)
@@ -114,7 +115,7 @@ class HomeController
                 'data' => $th
             ];
         }
-        $response->json($data);
+        return $response->json($data);
     }
 
     public function uploadAttachment($request, $response, $session)
@@ -134,7 +135,12 @@ class HomeController
                     ]);
             $response->json($do_upload);
         } catch (\Throwable $th) {
-            echo $th;
+            $data = [
+                'status' => false,
+                'message' => $th->getMessage(),
+                'data' => $th->getMessage()
+            ];
+            return $response->json($data);
         }
         
     }

@@ -1,6 +1,7 @@
 <?php echo $temp; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -619,8 +620,22 @@
                 })
                 .done(function(response) {
                     if (response.status) {
-                        $("#modal-form").modal("hide");
-                        $("#alert-update-task").addClass("d-none")
+                        if (response.success) {
+                            $('#alert-update-task').removeClass('alert-danger')
+                            $('#alert-update-task').removeClass('alert-warning')
+                            $('#alert-update-task').addClass('alert-success')
+                            $('#alert-update-task strong').text("Success")
+                            $('#alert-update-task').text(response.message)
+                            $('#alert-update-task').removeClass('d-none')
+                        } else {
+                            $('#alert-update-task').removeClass('alert-danger')
+                            $('#alert-update-task').removeClass('alert-success')
+                            $('#alert-update-task').addClass('alert-warning')
+                            $('#alert-update-task strong').text("Warning")
+                            $('#alert-update-task').text(response.message)
+                            $('#alert-update-task').removeClass('d-none')
+                        }
+
                     } else {
                         $("#alert-update-task").removeClass("d-none")
                     }
@@ -641,6 +656,7 @@
                     if (response.status) {
                         // $("#modal-form").modal("hide");
                         // $("#alert-update-task").addClass("d-none")
+                        alert(response.message)
                     } else {
                         // $("#alert-update-task").removeClass("d-none")
                     }
@@ -664,7 +680,21 @@
                 processData: false, // Set ke false agar jQuery tidak memproses data FormData secara otomatis
                 contentType: false, // Set ke false agar jQuery tidak mengatur header 'Content-Type'
                 success: function(response) {
-                    console.log('File berhasil diunggah:', response);
+                    if (response.success) {
+                        $('#alert-update-task').removeClass('alert-danger')
+                        $('#alert-update-task').removeClass('alert-warning')
+                        $('#alert-update-task').addClass('alert-success')
+                        $('#alert-update-task strong').text("Success")
+                        $('#alert-update-task').text(response.message)
+                        $('#alert-update-task').removeClass('d-none')
+                    } else {
+                        $('#alert-update-task').removeClass('alert-danger')
+                        $('#alert-update-task').removeClass('alert-success')
+                        $('#alert-update-task').addClass('alert-warning')
+                        $('#alert-update-task strong').text("Warning")
+                        $('#alert-update-task').text(response.message)
+                        $('#alert-update-task').removeClass('d-none')
+                    }
                 },
                 error: function(error) {
                     console.error('Gagal mengunggah file:', error);

@@ -62,7 +62,7 @@ class Storage
         
         // Validasi jika terjadi error pada unggahan file
         if ($this->file['error'] !== UPLOAD_ERR_OK) {
-            throw new \Exception("File upload failed");
+            throw new \Exception("File upload failed Max size 2 MB");
         }
 
         // Validasi bahwa nama file tidak mengandung tanda '-'
@@ -78,8 +78,8 @@ class Storage
             throw new \Exception("File extension not allowed.");
         }
 
-        // Validasi ukuran file (contoh: maksimum 5 MB)
-        $maxFileSize = 5 * 1024 * 1024;
+        // Validasi ukuran file (contoh: maksimum 2 MB)
+        $maxFileSize = 2 * 1024 * 1024;
         if ($this->file['size'] > $maxFileSize) {
             throw new \Exception("File size exceeds the maximum limit.");
         }

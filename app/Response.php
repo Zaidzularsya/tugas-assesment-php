@@ -2,7 +2,8 @@
 namespace ZF\App;
 
 use ZF\App\Kontrak\HttpInterface;
-class Response implements HttpInterface
+use ZF\App\Http;
+class Response extends Http implements HttpInterface
 {
     private $statusCode = 200;
     private $headers = [];
@@ -10,7 +11,7 @@ class Response implements HttpInterface
     private $queryParams = [];
     private $formData = [];
     private $formFiles;
-    private $method;
+    protected $method;
     private $uri;
 
     public function __construct()
@@ -137,6 +138,7 @@ class Response implements HttpInterface
         // Atur status code
         http_response_code($this->statusCode);
 
+        $this->addHeader('Content-Type', 'text/plain');
         // Atur header
         foreach ($this->headers as $name => $value) {
             header("$name: $value");
@@ -158,5 +160,43 @@ class Response implements HttpInterface
 
         // Tampilkan body
         echo json_encode($data);
+    }
+
+    public function view($view, $data)
+    {
+        // Atur status code
+        http_response_code($this->statusCode);
+        $this->addHeader('Content-Type', 'text/html; charset=UTF-8');
+
+        // Atur header
+        foreach ($this->headers as $name => $value) {
+            header("$name: $value");
+        }
+        $session = $this->getSession();
+        extract($data);
+        require "views/".$view.".php";
+    }
+
+    /**
+     * Forward to controller 
+     * 
+     * @param   array   [HomeController::class,'index']
+     */
+    public function forward($callback)
+    {
+        if (is_array($callback) && count($callback) == 2) {
+            // Jika $callback adalah array [namaController, namaMetode]
+            $controllerName = $callback[0];
+            $methodName = $callback[1];
+
+            // Membuat instance dari controller
+            $controller = new $controllerName();
+
+            // Memanggil metode pada controller
+            return $controller->$methodName($this->request, $this->response, $this->session);
+        } else {
+            // Tindakan lain sesuai dengan kebutuhan Anda
+            echo "Invalid callback format";
+        }
     }
 }

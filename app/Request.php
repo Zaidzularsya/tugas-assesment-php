@@ -5,7 +5,7 @@ namespace ZF\App;
 use ZF\App\Kontrak\HttpInterface;
 
 
-class Request implements HttpInterface
+class Request extends Http implements HttpInterface
 {
     private $statusCode = 200;
     private $queryParams = [];
@@ -13,8 +13,10 @@ class Request implements HttpInterface
     private $body;
     private $formData = [];
     private $formFiles;
-    private $method;
+    private $rawInput;
+    protected $method;
     private $uri;
+    protected $session;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class Request implements HttpInterface
         $this->queryParams = $_GET;
         $this->formData = $_POST;
         $this->formFiles = $_FILES;
+        $this->rawInput = file_get_contents('php://input');
     }
 
     /**
@@ -139,6 +142,15 @@ class Request implements HttpInterface
         return isset($this->formData[$key]) ? $this->formData[$key] : null;
     }
 
+    public function getJson(){
+        try {
+            $data = json_decode($this->rawInput, true);
+        } catch (\Throwable $th) {
+            $data = null;
+        }
+        return $data;
+    }
+
     /**
      * Mendapatkan data file dari request
      *
@@ -163,5 +175,34 @@ class Request implements HttpInterface
     {
         header("Location: ".BASE_URL."$url");
         exit();
+    }
+
+    public function view(){
+
+        require 'views/dashboard.php';
+    }
+
+
+    /**
+     * Forward to controller 
+     * 
+     * @param   array   [HomeController::class,'index']
+     */
+    public function forward($callback)
+    {
+        if (is_array($callback) && count($callback) == 2) {
+            // Jika $callback adalah array [namaController, namaMetode]
+            $controllerName = $callback[0];
+            $methodName = $callback[1];
+
+            // Membuat instance dari controller
+            $controller = new $controllerName();
+
+            // Memanggil metode pada controller
+            return $controller->$methodName($this->request, $this->response, $this->session);
+        } else {
+            // Tindakan lain sesuai dengan kebutuhan Anda
+            echo "Invalid callback format";
+        }
     }
 }

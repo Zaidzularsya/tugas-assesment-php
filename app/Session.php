@@ -17,7 +17,7 @@ class Session
      * @param string $key   Nama kunci untuk menyimpan nilai
      * @param mixed  $value Nilai yang akan disimpan
      */
-    public function set($key, $value=null)
+    public static function set($key, $value=null)
     {
         if (is_array($key)) {
             // Jika parameter pertama adalah array, iterasi dan setiap elemen
@@ -36,7 +36,7 @@ class Session
      * @param string $key Nama kunci untuk mengambil nilai
      * @return mixed|null Nilai dari session atau null jika kunci tidak ditemukan
      */
-    public function get($key)
+    public static function get($key)
     {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
@@ -48,7 +48,7 @@ class Session
      * 
      * @return mixed|null Nilai dari session atau null jika kunci tidak ditemukan
      */
-    public function getAll()
+    public static function getAll()
     {
         return isset($_SESSION) ? $_SESSION : null;
     }
@@ -60,7 +60,7 @@ class Session
      *
      * @param string $key Nama kunci untuk menghapus nilai
      */
-    public function remove($key)
+    public static function remove($key)
     {
         if (isset($_SESSION[$key])) {
             unset($_SESSION[$key]);
@@ -70,7 +70,7 @@ class Session
     /**
      * Mengakhiri dan menghapus semua data dari session
      */
-    public function destroy()
+    public static function destroy()
     {
         session_unset();
         session_destroy();

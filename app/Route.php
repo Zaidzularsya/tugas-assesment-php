@@ -36,6 +36,11 @@ class Route extends Http
         }
     }
 
+    /**
+     * Forward to controller 
+     * 
+     * @param   array   [HomeController::class,'index']
+     */
     public function forward($callback)
     {
         if (is_array($callback) && count($callback) == 2) {
