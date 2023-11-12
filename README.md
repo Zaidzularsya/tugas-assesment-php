@@ -144,5 +144,49 @@ Note:
 <summary>create</summary>
   
 ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/273bfdf5-1d35-4d17-b5cf-daf620fc9db8)
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/bd927ab8-11e9-4779-b522-dd3ed1387553)
+
 
 </details>
+
+<details>
+<summary>update</summary>
+
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/2cc13d8b-853f-448e-a2da-d942bfc236dd)
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/5df10ccd-e758-42f2-859e-edea630688f4)
+
+</details>
+
+<details>
+<summary>delete</summary>
+
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/0039d445-f2df-4108-94f4-a0bac944ce77)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/a653bd1c-206c-4e92-a8e2-ab899036ba85)
+
+</details>
+
+<details>
+<summary>Negativ case invalid basic auth</summary>
+
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/422e049d-881b-43c2-b2eb-50ef4d61dc2e)
+
+</details>
+
+<details>
+<summary>validasi data mandatory negitv case</summary>
+
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/a0260e16-4544-47ea-b47f-c32b94326c4a)
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/a3d943ea-e6bd-42d4-abd9-e41eb46bc906)
+
+
+</details>
+
+<details>
+<summary>validasi data mandatory positiv case</summary>
+
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/8e8f702f-1ae4-481f-8684-35b3236365c2)
+
+</details>
+
+
+
