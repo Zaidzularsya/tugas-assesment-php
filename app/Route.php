@@ -43,6 +43,7 @@ class Route extends Http
      */
     public function forward($callback)
     {
+        
         if (is_array($callback) && count($callback) == 2) {
             // Jika $callback adalah array [namaController, namaMetode]
             $controllerName = $callback[0];

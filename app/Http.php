@@ -12,6 +12,7 @@ abstract class Http{
     protected $cookie;
     protected $method;
     protected $session;
+    protected $csrfToken;
     
     private $basic_auth = [
         'username' => 'zaid',
@@ -23,6 +24,7 @@ abstract class Http{
         $this->session = new Session();
         $this->request = new Request();
         $this->response= new Response();
+        $this->method  = $_SERVER['REQUEST_METHOD']; 
     }
 
     public function getSession(){

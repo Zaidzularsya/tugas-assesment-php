@@ -21,6 +21,12 @@ class Response extends Http implements HttpInterface
         $this->queryParams = $_GET;
         $this->formData = $_POST;
         $this->formFiles = $_FILES;
+        // $this->addHeader('Content-Security-Policy', "default-src 'self'");
+        session_set_cookie_params([
+            'httponly' => true,
+            'samesite' => 'Strict'
+        ]);
+
     }
 
     /**
@@ -166,13 +172,15 @@ class Response extends Http implements HttpInterface
     {
         // Atur status code
         http_response_code($this->statusCode);
+        $session = $this->getSession();
         $this->addHeader('Content-Type', 'text/html; charset=UTF-8');
-
+        $token = hash('sha256', uniqid('', true) . random_bytes(32));
+        $this->session->set('csrfToken', $token);
+        $csrfToken = "<input type=\"hidden\" name=\"_token\" value=\"{$token}\" />";
         // Atur header
         foreach ($this->headers as $name => $value) {
             header("$name: $value");
         }
-        $session = $this->getSession();
         extract($data);
         require "views/".$view.".php";
     }

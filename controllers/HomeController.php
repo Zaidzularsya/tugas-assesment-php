@@ -7,10 +7,11 @@ use ZF\Models\Tasks;
 
 class HomeController
 {
-    public function index()
+    public function index($request, $response, $session)
     {
         // Logika untuk halaman utama
-        require 'views/signIn.php';
+        
+        return $response->view('signIn', []);
     }
 
     public function home($request, $response, $session)
@@ -36,7 +37,17 @@ class HomeController
     public function updateTask($request, $response, $session)
     {
         $db = new Database();
-        $formData = $request->getForm();
+        $formData = $request->sanitizeForm([
+            'description' => FILTER_SANITIZE_STRING, 'completed' => FILTER_VALIDATE_BOOLEAN
+        ])->getForm();
+
+        if (!in_array('csrfToken', array_keys($formData)) || $formData['csrfToken'] !== $session->get('csrfToken')) {
+            return $response->json([
+                'status' => false,
+                'message' => 'Invalid Token CSRF',
+                'data' => $formData
+            ]);
+        }
         
         // Contoh query SELECT
         try {
@@ -68,8 +79,17 @@ class HomeController
     public function insertTask($request, $response, $session)
     {
         $db = new Database();
-        $formData = $request->getForm();
+        $formData = $request->sanitizeForm([
+            'description' => FILTER_SANITIZE_STRING, 'completed' => FILTER_VALIDATE_BOOL
+        ])->getForm();
 
+        if (!in_array('csrfToken', array_keys($formData)) || $formData['csrfToken'] !== $session->get('csrfToken')) {
+            return $response->json([
+                'status' => false,
+                'message' => 'Invalid Token CSRF',
+                'data' => $formData
+            ]);
+        }
         // Contoh query SELECT
         try {
             $db->query('INSERT INTO ZM_TASK (user_id, description, completed, CREATE_AT, UPDATE_AT) VALUES
@@ -96,7 +116,9 @@ class HomeController
     public function deleteTask($request, $response, $session)
     {
         $db = new Database();
-        $formData = $request->getForm();
+        $formData = $request->sanitizeForm([
+            'description' => 'FILTER_SANITIZE_STRING', 'completed' => 'FILTER_VALIDATE_BOOL'
+        ])->getForm();
 
         // Contoh query SELECT
         try {

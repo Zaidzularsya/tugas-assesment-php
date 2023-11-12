@@ -50,7 +50,7 @@ class AuthController
             $response->addHeader('Content-Type', 'application/json');
             $data = [
                 'status' => false,
-                'message' => 'Auth berhasil',
+                'message' => 'Invalid Username or Passwrod',
                 'data' => null
             ];
             // Mengembalikan data dalam format JSON

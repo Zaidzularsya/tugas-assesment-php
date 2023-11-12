@@ -28,6 +28,11 @@ class Request extends Http implements HttpInterface
         $this->rawInput = file_get_contents('php://input');
     }
 
+    public function getSession()
+    {
+        return $this->session;
+    }
+
     /**
      * Mendapatkan metode request (GET, POST, dll.)
      *
@@ -140,6 +145,33 @@ class Request extends Http implements HttpInterface
         }
 
         return isset($this->formData[$key]) ? $this->formData[$key] : null;
+    }
+
+    /**
+     * Sanitasi input form 
+     * ref: https://www.php.net/manual/en/filter.filters.sanitize.php
+     * 
+     * @param array inputs (contoh: ['username' => string atau array [FILTER_SANITIZE_STRING]])
+     */
+    public function sanitizeForm(array $input){
+        foreach ($input as $key => $flag) {
+            if (is_array($flag)) {
+                foreach ($flag as $filter) {
+                    if ($filter !== FILTER_SANITIZE_STRING) {
+                        $this->formData[$key] = filter_var($this->formData[$key], $filter);
+                    }else{
+                        $this->formData[$key] = htmlspecialchars($this->formData[$key], ENT_QUOTES, 'UTF-8');
+                    }
+                }
+            }else{
+                if ($flag !== FILTER_SANITIZE_STRING) {
+                    $this->formData[$key] = filter_var($this->formData[$key], $flag);
+                }else{
+                    $this->formData[$key] = htmlspecialchars($this->formData[$key], ENT_QUOTES, 'UTF-8');
+                }
+            }
+        }
+        return $this;
     }
 
     public function getJson(){

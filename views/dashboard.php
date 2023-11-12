@@ -1,4 +1,3 @@
-<?php echo $temp; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/tugas-assesment-php/views/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/tugas-assesment-php/views/assets/img/favicon.png">
     <title>
-        Argon Dashboard 2 by Creative Tim
+        Dashboard
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -31,7 +30,7 @@
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
                 <img src="/tugas-assesment-php/views/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Argon Dashboard 2</span>
+                <span class="ms-1 font-weight-bold">Assesment</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -133,10 +132,10 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
+                        <!-- <div class="input-group">
                             <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                        </div> -->
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -145,7 +144,7 @@
                                 <span class="d-sm-inline d-none"><?php print $session->get('name'); ?></span>
                             </a>
                         </li>
-                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <!-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line bg-white"></i>
@@ -153,13 +152,13 @@
                                     <i class="sidenav-toggler-line bg-white"></i>
                                 </div>
                             </a>
-                        </li>
-                        <li class="nav-item px-3 d-flex align-items-center">
+                        </li> -->
+                        <!-- <li class="nav-item px-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
                                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                             </a>
-                        </li>
-                        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                        </li> -->
+                        <!-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
@@ -231,7 +230,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item d-flex px-3 align-items-center">
                             <a href="./logout" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fas fa-sign-out-alt"></i>
@@ -412,7 +411,7 @@
             <footer class="footer pt-3  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
+                        <!-- <div class="col-lg-6 mb-lg-0 mb-4">
                             <div class="copyright text-center text-sm text-muted text-lg-start">
                                 © <script>
                                     document.write(new Date().getFullYear())
@@ -421,8 +420,8 @@
                                 <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
                                 for a better web.
                             </div>
-                        </div>
-                        <div class="col-lg-6">
+                        </div> -->
+                        <!-- <div class="col-lg-6">
                             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                                 <li class="nav-item">
                                     <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
@@ -437,7 +436,7 @@
                                     <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </footer>
@@ -450,8 +449,8 @@
         <div class="card shadow-lg">
             <div class="card-header pb-0 pt-3 ">
                 <div class="float-start">
-                    <h5 class="mt-3 mb-0">Argon Configurator</h5>
-                    <p>See our dashboard options.</p>
+                    <!-- <h5 class="mt-3 mb-0">Argon Configurator</h5>
+                    <p>See our dashboard options.</p> -->
                 </div>
                 <div class="float-end mt-4">
                     <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -500,9 +499,9 @@
                         <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
                     </div>
                 </div>
-                <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard">Free Download</a>
-                <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard">View documentation</a>
-                <div class="w-100 text-center">
+                <!-- <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard">Free Download</a>
+                <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard">View documentation</a> -->
+                <!-- <div class="w-100 text-center">
                     <a class="github-button" href="https://github.com/creativetimofficial/argon-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/argon-dashboard on GitHub">Star</a>
                     <h6 class="mt-3">Thank you for sharing!</h6>
                     <a href="https://twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
@@ -511,7 +510,7 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
                         <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -532,6 +531,7 @@
                                     <strong>Danger!</strong> Failed to update data
                                 </div>
                                 <form role="form text-left">
+                                    <?php echo $csrfToken; ?>
                                     <label>Description</label>
                                     <div class="input-group mb-3">
                                         <input type="text" name="DESCRIPTION" class="form-control" placeholder="Description" aria-label="Description" aria-describedby="description-addon">
@@ -582,6 +582,7 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script>
         // custom-script 
+        var table;
         var list_tasks = <?php print json_encode($list_tasks); ?>;
         var submit_task_action = 'insert';
         var selected_id;
@@ -613,6 +614,7 @@
                     method: "POST",
                     url: api[submit_task_action],
                     data: {
+                        csrfToken: $("input[name=_token]").val(),
                         id: selected_id,
                         description: $("input[name=DESCRIPTION]").val(),
                         completed: $("input[name=COMPLETED]").prop("checked")
@@ -620,24 +622,19 @@
                 })
                 .done(function(response) {
                     if (response.status) {
-                        if (response.success) {
-                            $('#alert-update-task').removeClass('alert-danger')
-                            $('#alert-update-task').removeClass('alert-warning')
-                            $('#alert-update-task').addClass('alert-success')
-                            $('#alert-update-task strong').text("Success")
-                            $('#alert-update-task').text(response.message)
-                            $('#alert-update-task').removeClass('d-none')
-                        } else {
-                            $('#alert-update-task').removeClass('alert-danger')
-                            $('#alert-update-task').removeClass('alert-success')
-                            $('#alert-update-task').addClass('alert-warning')
-                            $('#alert-update-task strong').text("Warning")
-                            $('#alert-update-task').text(response.message)
-                            $('#alert-update-task').removeClass('d-none')
-                        }
-
+                        $('#alert-update-task').removeClass('alert-danger')
+                        $('#alert-update-task').removeClass('alert-warning')
+                        $('#alert-update-task').addClass('alert-success')
+                        $('#alert-update-task strong').text("Success")
+                        $('#alert-update-task').text(response.message)
+                        $('#alert-update-task').removeClass('d-none')
                     } else {
-                        $("#alert-update-task").removeClass("d-none")
+                        $('#alert-update-task').removeClass('alert-danger')
+                        $('#alert-update-task').removeClass('alert-success')
+                        $('#alert-update-task').addClass('alert-warning')
+                        $('#alert-update-task strong').text("Warning")
+                        $('#alert-update-task').text(response.message)
+                        $('#alert-update-task').removeClass('d-none')
                     }
                 });
         });
@@ -649,6 +646,7 @@
                     method: "POST",
                     url: "./delete-task",
                     data: {
+                        csrfToken: "<?php echo $token; ?>",
                         id: selected_id
                     }
                 })
@@ -671,6 +669,7 @@
             // Buat objek FormData dan tambahkan file ke dalamnya
             var formData = new FormData();
             formData.append('lampiran', fileInput.files[0]);
+            formData.append('csrfToken', "<?php echo $token; ?>");
 
             // Kirim permintaan AJAX
             $.ajax({
@@ -702,7 +701,7 @@
             });
         });
 
-        let table = new DataTable("#table-task", {
+        table = new DataTable("#table-task", {
             // dom: '<"top"i>rt<"bottom"flp><"clear">'
         });
     </script>
