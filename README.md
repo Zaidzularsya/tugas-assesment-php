@@ -37,6 +37,59 @@ Note:
  
 # Pengumpulan Tugas 
 
+### Menggunakan Object Oriented 
+
+- [x] Mengguanakan namespace
+- [x] Magic method
+- [x] Overrideing method
+- [x] Interface dan Abstract
+- [x] Collection
+
+<details>
+  <summary>namespace</summary>
+  
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/d33d8cfc-57d2-4752-ab1b-38b2050e12b0)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/8095eabb-16b3-423c-b3ca-26d9c3d12b70)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/0c6c4049-0802-46c5-89f3-a6bc0e98d999)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/adbf6ceb-59cf-4f1d-b33b-3c362173e5fa)
+
+</details>
+
+<details>
+  <summary>Magic method</summary>
+  
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/8bda302e-c586-491f-8ea9-7f567361aef8)
+
+</details>
+
+<details>
+  <summary>Overide Method</summary>
+
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/94e266ad-a493-41be-ad92-4f75b7c32457)
+
+</details>
+
+<details>
+  <summary>Interface dan Abstract</summary>
+
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/79ce9df4-488c-438e-8581-1c6263dc0ecf)
+
+</details>
+
+<details>
+  <summary>collection</summary>
+
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/20323057-c0ad-4c5a-8075-5aadadf6ea36)
+
+</details>
+
+<details>
+  <summary>error handling</summary>
+
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/782f6e8d-5391-4d00-aa4a-7ee45f29a62d)
+
+</details>
+
 ### Login 
 
 <details>
@@ -131,6 +184,40 @@ Note:
 
 </details>
 
+### Implementasi Security 
+
+- [x] xss
+- [x] csrf
+- [x] sql injection 
+
+<details>
+  <summary>xss</summary>
+  
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/f83179c8-ca88-419d-9bbf-1d2dc4142416)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/c4a0e226-a4b4-49d1-ad75-d51eca51fb99)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/29dc2361-45f5-4cbd-aebc-e0e0167a9c26)
+  
+</details>
+
+<details>
+  <summary>csrf</summary>
+  
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/8fb78831-8ffc-42db-b6f0-407847cc113e)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/4a6b1e0f-6872-4f50-ba70-913e3b655ce9)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/c5c9a169-664f-4898-9995-fe758571ac53)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/235f500b-a3ba-4ee2-b4fe-aa8dd2a5da1c)
+
+</details>
+
+<details>
+  <summary>sql injection</summary>
+  
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/9c8a9d6a-2639-4d2f-8e18-1e53a78a92c5)
+  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/00421ca6-294c-49f0-9214-a1133ad829e8)
+
+
+</details>
+
 ### Api list, create, edit, delete 
 
 <details>
@@ -146,7 +233,6 @@ Note:
 ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/273bfdf5-1d35-4d17-b5cf-daf620fc9db8)
 ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/bd927ab8-11e9-4779-b522-dd3ed1387553)
 
-
 </details>
 
 <details>
@@ -160,8 +246,8 @@ Note:
 <details>
 <summary>delete</summary>
 
-  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/0039d445-f2df-4108-94f4-a0bac944ce77)
-  ![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/a653bd1c-206c-4e92-a8e2-ab899036ba85)
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/0039d445-f2df-4108-94f4-a0bac944ce77)
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/a653bd1c-206c-4e92-a8e2-ab899036ba85)
 
 </details>
 
@@ -188,5 +274,19 @@ Note:
 
 </details>
 
+<details>
+<summary>validasi data type Negatif case</summary>
 
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/71548b96-f7b0-4bd9-948b-436c7cd54931)
+
+</details>
+
+
+<details>
+<summary>validasi data type Positif case</summary>
+
+![image](https://github.com/Zaidzularsya/tugas-assesment-php/assets/85419185/98277f48-7d4b-4232-812c-d6f1523c13b5)
+
+
+</details>
 
